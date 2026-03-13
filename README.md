@@ -79,8 +79,6 @@ WattMamba/
     └── transcriptome_genome_location.py
 ```
 
-可以，下面我直接按 README 里可复制的 Markdown 原文格式给你，把命令行放进 `bash` 代码块中：
-
 ## 4. Data Preparation
 
 This repository expects feature tables in **TSV** format as model input. Raw nanopore files should be preprocessed into `*.signal.tsv` and then converted into `*.feature.tsv` before pretraining, fine-tuning, evaluation, or prediction.
@@ -228,7 +226,6 @@ After preprocessing, the repository uses **TSV** files as direct model input.
 * If the raw RNA004 data are stored in FAST5 format, they should be converted to POD5 before downstream processing.
 * The motif argument in feature extraction can be adjusted according to the target modification type, for example `NNANN` for m6A-centered candidate construction.
 
-把这一部分改成下面这样：
 
 ## 5. Usage
 
