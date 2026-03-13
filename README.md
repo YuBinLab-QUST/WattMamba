@@ -1,4 +1,4 @@
-#WattmaMod: extensible high-resolution detection of multiple RNA modifications for nanopore direct RNA sequencing
+# WattmaMod: extensible high-resolution detection of multiple RNA modifications for nanopore direct RNA sequencing
 
 > Using WattMamba as the feature extractor, the pipeline combines contrastive learning with an anomaly-detection paradigm to enable self-training pretraining and supervised fine-tuning, supporting single-nucleotide detection of multiple RNA modifications, including m^6A, m^5C, m^1A, A-to-I, m^7G, hm^5C, m^1Ψ, f^5C, ac^4C, m^5U, and Ψ.
 ---
