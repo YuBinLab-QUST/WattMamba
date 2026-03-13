@@ -58,8 +58,8 @@ Offline installation is recommended for faster setup:
 WattMamba/
 ├── model/                         # Core model definitions (WattMamba, AnomalyDetectionModel)
 ├── save_model/                   # Saved model artifacts
-│   ├── RNA002_model/                # hm5C, m7G, Inosine, Psu models
-│   └── RNA004_model/                # m1A, m6A, m5C and pre_trained models
+│   ├── RNA002_model/                
+│   └── RNA004_model/                
 ├── main/                    # Training & evaluation scripts
 │   ├── anomaly_detection.py
 │   ├── fine_tune_loss.py
