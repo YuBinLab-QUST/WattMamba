@@ -11,8 +11,7 @@
 - **Evaluation (`test`)**: load feature extractor and classifier to evaluate on a held-out test set.
 
 Core modules:
-- `model/WaveCrossMamba`: backbone feature extractor (wavelet / cross-attention / SSM, etc.).  
-- `model/AnomalyDetectionModel`: downstream classifier / anomaly head.  
+- `model/model`: backbone feature extractor (wavelet / cross-attention / SSM, etc.).  
 - `utils/dataloader`: data loading & augmentation.  
 - `train.py`: contrastive + anomaly training loops and fine-tuning.  
 - `anomaly_detection.py`: evaluation logic.
