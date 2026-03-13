@@ -87,7 +87,7 @@ def convert_transcriptome_loc_to_genome_loc(transcript_location_file, genome_loc
             if not line.strip():
                 continue
             count += 1
-            if count % 10_000_00 == 0:  # 每百万行打印一次
+            if count % 10_000_00 == 0:
                 print(count)
 
             items = line.rstrip('\n').split('\t')
