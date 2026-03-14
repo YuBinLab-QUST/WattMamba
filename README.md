@@ -18,6 +18,8 @@ Core modules:
 * `main/train.py`: training and fine-tuning code.
 * `main/main.py`: main entry script for argument parsing, configuration, and model execution.
 
+For questions related to code usage, execution, or debugging, please contact: **[2023111001@mails.qust.edu.cn](mailto:2023111001@mails.qust.edu.cn)**
+
 ---
 
 ## 2. Dependencies
