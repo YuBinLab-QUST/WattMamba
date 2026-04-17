@@ -5,6 +5,38 @@ warnings.filterwarnings('ignore')
 from pytorch_wavelets import DWT1D
 import torch.nn.functional as F
 class Down_wt(nn.Module):
+    """
+    A 1D wavelet-based downsampling and multi-scale feature extraction module.
+
+    This module applies a 1D discrete wavelet transform (DWT) to the input
+    sequence, extracts one low-frequency component and multiple high-frequency
+    components, resizes them to a unified temporal length, and concatenates
+    them along the channel dimension. A channel attention mechanism is then
+    used to reweight the multi-scale features before feeding them into a
+    1D convolutional feature extractor.
+
+    Args:
+        in_ch (int): Number of input channels.
+        out_ch (int): Number of output channels.
+        seq_len (int, optional): Length of the input sequence. Defaults to 500.
+
+    Inputs:
+        x (torch.Tensor): Input tensor of shape (B, C, L), where
+            B is the batch size,
+            C is the number of channels,
+            L is the sequence length.
+
+    Returns:
+        torch.Tensor: Output feature tensor after wavelet decomposition,
+        channel attention, and 1D convolution.
+
+    Note:
+        - The current implementation uses 4 levels of wavelet decomposition.
+        - After decomposition, the low-frequency and high-frequency components
+          are interpolated to a fixed length of 200.
+        - The concatenated multi-scale feature map has 5 channels:
+          [yL, yH1, yH2, yH3, yH4].
+    """
     def __init__(self, in_ch, out_ch, seq_len=500):
         super(Down_wt, self).__init__()
         self.seq_len = seq_len  
