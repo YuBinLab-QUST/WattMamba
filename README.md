@@ -37,6 +37,10 @@ pip install -r requirements.txt
 
 Additional note: the Mamba environment needs to be configured manually.
 
+A CUDA-capable NVIDIA GPU is required to run the software. CPU-only execution is not supported due to the Mamba-related configuration.
+
+Typical installation time is approximately 10–30 minutes on a normal desktop computer, depending on the system environment and network conditions.
+
 # install PyTorch
 
 conda install cudatoolkit==11.8 -c nvidia   # CUDA 11.8 is required
