@@ -18,6 +18,37 @@ class RMSNorm(nn.Module):
         output = x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + self.eps) * self.weight
         return output
 class GatedCrossAttention(nn.Module):
+    """
+    A gated cross-attention fusion module for integrating signal features
+    with statistical features.
+
+    This module adaptively fuses `x_signal` and `x_stats` by learning a
+    gate score for each time step. The gate is computed from the concatenated
+    signal and statistical representations, and is used to control how much
+    statistical information is injected into the signal features. The fused
+    output is then normalized with layer normalization.
+
+    Args:
+        d_model (int): Feature dimension of both the signal input and the
+            statistical input.
+
+    Inputs:
+        x_signal (torch.Tensor): Signal feature tensor of shape
+            (B, L, D), where B is the batch size, L is the sequence length,
+            and D is the feature dimension.
+        x_stats (torch.Tensor): Statistical feature tensor of shape
+            (B, 1, D) or broadcastable to (B, L, D).
+
+    Returns:
+        torch.Tensor: Fused output tensor of shape (B, L, D).
+
+    Note:
+        - A scalar gate value is generated for each time step.
+        - The statistical feature is expanded along the sequence dimension
+          before fusion.
+        - The output is computed with a residual-style fusion followed by
+          layer normalization.
+    """
     def __init__(self, d_model):
         super().__init__()
         self.gate_fc = nn.Sequential(
