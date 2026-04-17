@@ -39,6 +39,9 @@ class DataEmbedding(nn.Module):
         x = self.layer_norm(x)
         return self.dropout(x)
 class StatsGRU(nn.Module):
+    """
+    Encode sequential statistical features with a bidirectional LSTM.
+    """
     def __init__(self, input_dim=9, hidden_dim=64, output_dim=128):
         super(StatsGRU, self).__init__()
         self.lstm = nn.LSTM(input_size=input_dim,hidden_size=64,batch_first=True,bidirectional=True,dropout=0.3)
